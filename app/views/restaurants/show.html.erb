@@ -1,3 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+
 <div class="container">
   <h1><%= @restaurant.name %></h1>
   <p><%= @restaurant.address %></p>
@@ -9,5 +18,8 @@
       <i class="far fa-star"></i>
     <% end %>
   </p>
+  <%= link_to restaurant_path(@restaurant), method: :delete, data: { confirm: "Do you want to delete #{@restaurant.name}" } do %>
+    <i class="fas fa-times"></i>
+  <% end %>
   <p><%= link_to "Home", restaurants_path  %></p>
 </div>
