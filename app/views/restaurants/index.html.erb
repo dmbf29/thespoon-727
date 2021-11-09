@@ -1,2 +1,13 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<div class="container">
+  <h1>Restaurants</h1>
+  <div class="cards">
+    <% @restaurants.each do |restaurant| %>
+      <div class="d-flex">
+        <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+        <%= link_to restaurant_path(restaurant), method: :delete, data: { confirm: "Do you want to delete #{restaurant.name}" } do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
