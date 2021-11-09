@@ -1,25 +1,48 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://source.unsplash.com/featured/?<%= @restaurant.category %>&<%= rand(1000) %>/800x333);">
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
   </div>
 </div>
 
 
-<div class="container">
-  <h1><%= @restaurant.name %></h1>
-  <p><%= @restaurant.address %></p>
-  <p>
-    <% @restaurant.rating.times do %>
-      <i class="fas fa-star"></i>
-    <% end %>
-    <% (5 - @restaurant.rating).times do %>
-      <i class="far fa-star"></i>
-    <% end %>
-  </p>
-  <%= link_to restaurant_path(@restaurant), method: :delete, data: { confirm: "Do you want to delete #{@restaurant.name}" } do %>
-    <i class="fas fa-times"></i>
-  <% end %>
-  <p><%= link_to "Home", restaurants_path  %></p>
+<div class="container mt-2">
+  <div class="row justify-content-around">
+    <div class="col-12 col-sm-8">
+      <p><%= link_to '< Back', restaurants_path, class: 'btn-light' %></p>
+      <div class="d-flex align-items-center">
+        <h1 class="m-0"><%= @restaurant.name %></h1>
+      <p class="m-0 ms-2" style="font-size: 0.8em">
+        <% @restaurant.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - @restaurant.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </p>
+      </div>
+      <p class="fw-lighter opacity-75 mt-2"><%= Faker::Restaurant.description  %></p>
+    </div>
+    <div class="col-12 col-sm-4 mt-5">
+      <p class="fw-lighter opacity-75">
+        <i class="fas fa-map-pin"></i><span class='ms-2'><%= @restaurant.address %></span>
+      </p>
+      <p class="fw-lighter opacity-75">
+        <% rand(2..5).times do %>
+          <i class="fas fa-dollar-sign"></i>
+        <% end %>
+      </p>
+      <p class="fw-lighter opacity-75">
+        <i class="fas fa-utensils"></i></i><span class='ms-2'><%= @restaurant.category %></span>
+      </p>
+      <div class="d-flex">
+        <%= link_to edit_restaurant_path(@restaurant) do %>
+          <i class="fas fa-pencil-alt btn-light mx-1"></i>
+        <% end %>
+        <%= link_to restaurant_path(@restaurant), method: :delete, data: { confirm: "Do you want to delete #{@restaurant.name}" } do %>
+          <i class="fas fa-trash btn-light mx-1"></i>
+        <% end %>
+      </div>
+      </p>
+    </div>
+  </div>
+
 </div>
