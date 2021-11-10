@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to restaurants_path, class: "navbar-brand" do %>
-    <i class="fas fa-utensils"></i>
-  <% end %>
+  <div class="d-flex align-items-center">
+    <%= link_to restaurants_path, class: "navbar-brand" do %>
+      <i class="fas fa-utensils"></i>
+    <% end %>
+    The Spoon
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,8 +13,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to "Restaurants", restaurants_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "5 Star", top_restaurants_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/yannklein", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

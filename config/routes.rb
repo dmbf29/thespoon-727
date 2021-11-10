@@ -1,28 +1,25 @@
 Rails.application.routes.draw do
   # verb '/path', to: 'controller#action', as: :prefix
   # CRUD
-  # Create
-  # one page for the form
-  get '/restaurants/new', to: 'restaurants#new', as: :new_restaurant
-  # a place to send our form data
-  post '/restaurants', to: 'restaurants#create', as: :restaurants
+  resources :restaurants do
+    resources :reviews, only: [:new, :create]
+    member do
+      get :chef
+    end
+    collection do
+      get :top
+    end
+  end
+  resources :reviews, only: [:destroy]
+  # restaurant_review_path(restaurant, review), method: :delete
+  # new / create
+  # get '/reviews/new', to: 'reviews#new'
 
-  # Read all
-  get '/restaurants', to: 'restaurants#index'
-  # Read one # params[:id]
-  get '/restaurants/:id', to: 'restaurants#show', as: :restaurant
-
-  # Update
-  # one page for the form
-  get '/restaurants/:id/edit', to: 'restaurants#edit', as: :edit_restaurant
-  # a place to send our form data
-  patch '/restaurants/:id', to: 'restaurants#update'
-
-  # Destroy
-  delete '/restaurants/:id', to: 'restaurants#destroy'
 end
 
 
+
+# get '/restaurants/top', to: 'restaurants#top', as: :top_restaurants
 # index
 # restaurants_path, method: :get
 # create

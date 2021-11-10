@@ -28,6 +28,7 @@ gem 'turbolinks', '~> 5'
 # Added
 gem 'faker'
 gem 'font-awesome-sass', '~> 5.15.1'
+gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

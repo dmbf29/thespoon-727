@@ -1,6 +1,14 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
+  def top
+    @restaurants = Restaurant.where(rating: 5)
+  end
+
+  def chef
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   # /restaurants
   def index
     @restaurants = Restaurant.all

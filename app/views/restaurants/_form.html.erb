@@ -5,7 +5,8 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_for(@restaurant) do |f| %>
+<%# restaurants_path %>
+<%= form_for @restaurant do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
